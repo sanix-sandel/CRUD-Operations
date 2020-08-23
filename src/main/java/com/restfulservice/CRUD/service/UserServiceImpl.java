@@ -1,10 +1,12 @@
 package com.restfulservice.CRUD.service;
 
 import com.restfulservice.CRUD.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsers(){

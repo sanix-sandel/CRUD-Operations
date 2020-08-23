@@ -13,9 +13,9 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
     UserService userService;
 
-    @Autowired
     @ResponseBody
     @RequestMapping("")
     public List<User> getAllUsers(){
