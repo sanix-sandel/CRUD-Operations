@@ -22,18 +22,21 @@ public class UserController {
        return userService.getAllUsers();
     }*/
 
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping("/{id}")
     public User getUser(@PathVariable("id") Integer id){
         return userService.getUser(100);
-    }
+    }*/
 
     @ResponseBody
     @RequestMapping(value="", method= RequestMethod.POST)
-    public Map<String, Object> createUser(){
+    public Map<String, Object> createUser(@RequestParam(value="userid") Integer userid,
+                                          @RequestParam(value="username")String username){
         Map<String, Object>map=new LinkedHashMap<>();
-        map.put("result", "Create User implementation");
+        userService.createUser(userid, username);
+        map.put("result", "added");
         return map;
+
     }
 
     @ResponseBody
