@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@RestController
-@RequestMapping
+//@RestController
+//@RequestMapping
 public class HomeController {
-    @ResponseBody
-    @RequestMapping("")
+    //@ResponseBody
+  //  @RequestMapping("")
     public Map<String, Object> test(){
         Map<String, Object>map=new LinkedHashMap<>();
         map.put("result", "Aloha");

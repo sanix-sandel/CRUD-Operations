@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping()
+    @RequestMapping("/{id}")
     public Map<String, Object> getUser(@PathVariable("id") Integer id){
         Map<String, Object> map=new LinkedHashMap<>();
         map.put("result", "Get User Implementation");
