@@ -1,20 +1,25 @@
 package com.restfulservice.CRUD;
 
+import com.restfulservice.CRUD.model.User;
+import com.restfulservice.CRUD.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
+    UserService userService;
+
+    @Autowired
     @ResponseBody
     @RequestMapping("")
-    public Map<String, Object> getAllUsers(){
-        Map<String, Object>map=new LinkedHashMap<>();
-        map.put("result", "Get All Users Implementation");
-        return map;
+    public List<User> getAllUsers(){
+       return userService.getAllUsers();
     }
 
     @ResponseBody

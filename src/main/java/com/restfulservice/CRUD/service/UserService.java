@@ -1,4 +1,9 @@
 package com.restfulservice.CRUD.service;
 
-public class UserService {
+import com.restfulservice.CRUD.model.User;
+
+import java.util.List;
+
+public interface UserService {
+    List<User> getAllUsers();
 }
