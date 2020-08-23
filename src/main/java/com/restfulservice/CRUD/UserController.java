@@ -16,18 +16,16 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping("")
     public List<User> getAllUsers(){
        return userService.getAllUsers();
-    }
+    }*/
 
     @ResponseBody
     @RequestMapping("/{id}")
-    public Map<String, Object> getUser(@PathVariable("id") Integer id){
-        Map<String, Object> map=new LinkedHashMap<>();
-        map.put("result", "Get User Implementation");
-        return map;
+    public User getUser(@PathVariable("id") Integer id){
+        return userService.getUser(100);
     }
 
     @ResponseBody

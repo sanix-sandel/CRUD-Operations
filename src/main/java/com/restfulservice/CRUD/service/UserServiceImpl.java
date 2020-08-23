@@ -8,9 +8,16 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
-    @Override
+   /* @Override
     public List<User> getAllUsers(){
         return this.users;
+    }*/
+    @Override
+    public User getUser(Integer userid){
+        return users.stream()
+                .filter(x->x.getUserid() == userid)
+                .findAny()
+                .orElse(new User(0, "Not Available"));
     }
 
     public static List<User> users;
