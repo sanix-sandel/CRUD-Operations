@@ -24,13 +24,17 @@ public class UserServiceImpl implements UserService{
         User user=new User(userid, username);
         this.users.add(user);
     }*/
-    @Override
+    /*@Override
     public void updateUser(Integer userid, String username){
         users.stream()
                 .filter(x->x.getUserid()==userid)
                 .findAny()
                 .orElseThrow(()->new RuntimeException("Item not found"))
                 .setUsername(username);
+    }*/
+    @Override
+    public void deleteUser(Integer userid){
+        users.removeIf((User u)->u.getUserid()==userid);
     }
 
     public static List<User> users;

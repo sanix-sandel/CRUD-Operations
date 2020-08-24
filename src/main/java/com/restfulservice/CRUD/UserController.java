@@ -39,7 +39,7 @@ public class UserController {
 
     }*/
 
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping(value="", method=RequestMethod.PUT)
     public Map<String, Object> updateUser(@RequestParam(value="userid")Integer userid,
         @RequestParam(value="username")String username){
@@ -48,13 +48,14 @@ public class UserController {
         userService.updateUser(userid, username);
         map.put("result", "Updated");
         return map;
-    }
+    }*/
 
     @ResponseBody
-    @RequestMapping(value="", method=RequestMethod.DELETE)
-    public Map<String, Object> deleteUser(){
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    public Map<String, Object> deleteUser(@PathVariable("id") Integer userid){
         Map<String, Object> map=new LinkedHashMap<>();
-        map.put("result", "Delete User Implementation");
+        userService.deleteUser(userid);
+        map.put("result", "Deleted");
         return map;
     }
 }
