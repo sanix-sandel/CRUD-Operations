@@ -28,7 +28,7 @@ public class UserController {
         return userService.getUser(100);
     }*/
 
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping(value="", method= RequestMethod.POST)
     public Map<String, Object> createUser(@RequestParam(value="userid") Integer userid,
                                           @RequestParam(value="username")String username){
@@ -37,13 +37,16 @@ public class UserController {
         map.put("result", "added");
         return map;
 
-    }
+    }*/
 
     @ResponseBody
     @RequestMapping(value="", method=RequestMethod.PUT)
-    public Map<String, Object> updateUser(){
+    public Map<String, Object> updateUser(@RequestParam(value="userid")Integer userid,
+        @RequestParam(value="username")String username){
+
         Map<String, Object> map=new LinkedHashMap<>();
-        map.put("result", "Update User Implementation");
+        userService.updateUser(userid, username);
+        map.put("result", "Updated");
         return map;
     }
 

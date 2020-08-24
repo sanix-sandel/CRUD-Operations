@@ -19,10 +19,18 @@ public class UserServiceImpl implements UserService{
                 .findAny()
                 .orElse(new User(0, "Not Available"));
     }*/
-    @Override
+    /*@Override
     public void createUser(Integer userid, String username){
         User user=new User(userid, username);
         this.users.add(user);
+    }*/
+    @Override
+    public void updateUser(Integer userid, String username){
+        users.stream()
+                .filter(x->x.getUserid()==userid)
+                .findAny()
+                .orElseThrow(()->new RuntimeException("Item not found"))
+                .setUsername(username);
     }
 
     public static List<User> users;
